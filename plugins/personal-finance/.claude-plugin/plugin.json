@@ -1,0 +1,12 @@
+{
+  "name": "personal-finance",
+  "description": "Budgeting, spending analysis, debt payoff, savings goals, and net-worth tracking — fully local, your data never leaves your machine.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Alan Ho",
+    "url": "https://github.com/alanho"
+  },
+  "homepage": "https://github.com/alanho/my-agents-and-skills/tree/main/plugins/personal-finance",
+  "license": "MIT",
+  "keywords": ["finance", "budgeting", "money", "spending", "savings", "debt"]
+}

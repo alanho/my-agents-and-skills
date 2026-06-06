@@ -1,0 +1,18 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "my-agents-and-skills",
+  "description": "Life-improving Claude Code agents and skills. Practical, shareable plugins that help with everyday life — starting with personal finance.",
+  "owner": {
+    "name": "Alan Ho",
+    "url": "https://github.com/alanho"
+  },
+  "plugins": [
+    {
+      "name": "personal-finance",
+      "source": "./plugins/personal-finance",
+      "description": "Budgeting, spending analysis, debt payoff, savings goals, and net-worth tracking — your money, organized by an agent that never sees the cloud.",
+      "category": "productivity",
+      "homepage": "https://github.com/alanho/my-agents-and-skills/tree/main/plugins/personal-finance"
+    }
+  ]
+}
