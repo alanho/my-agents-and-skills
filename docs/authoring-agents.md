@@ -1,5 +1,12 @@
 # Authoring agents
 
+> ⚠️ **Agents are not portable.** The open Agent Skills standard covers
+> **skills**, not subagents. Subagent formats (system prompt + tool allow-list +
+> model selection) are still harness-specific — the format below is **Claude
+> Code**'s. If a capability can be a skill, make it a skill: skills run in every
+> harness, agents do not. Reach for an agent only when a skill genuinely can't
+> express the task.
+
 An **agent** (subagent) is a single markdown file with frontmatter and a system
 prompt. The orchestrator spawns it for focused, multi-step work in its own
 context window, with its own tool set. Use an agent when a task benefits from
@@ -46,7 +53,9 @@ They compose: an agent's system prompt can tell it to use a skill.
   say what's missing. No invented numbers.
 - **Stay local** with personal data, same as skills.
 
-## Test it
+## Install & test it
 
-Install the plugin, then ask the orchestrator to do the kind of task the
-agent's `description` covers and confirm it gets delegated and reports back well.
+Copy the agent file into your harness's agents directory (Claude Code:
+`~/.claude/agents/` or `<project>/.claude/agents/`). Then ask the orchestrator to
+do the kind of task the agent's `description` covers and confirm it gets
+delegated and reports back well.
