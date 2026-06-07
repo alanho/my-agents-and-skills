@@ -27,15 +27,21 @@ supports the open [Agent Skills](https://agentskills.io) standard.
 - **Deterministic where possible.** Push parsing/math into `scripts/`; it's
   cheaper and more reliable than asking the model to compute.
 
-## Add an agent (optional, harness-specific)
+## Add an agent (open standard too — OAF)
 
-Only when a task genuinely can't be a skill. Agents are **not** portable —
-they're Claude Code subagent format today.
+Only when a task genuinely can't be a skill. Agents use the open
+[Open Agent Format](https://openagentformat.com) — portable, CC0 — but its
+harness adoption is still emerging, so prefer a skill when you can. An agent can
+compose your portable skills.
 
-1. Create `agents/<category>/<agent-name>.md`.
-2. Copy [`templates/agent.template.md`](templates/agent.template.md); fill the
-   frontmatter (`name`, `description`, `tools`, `model`) and system prompt.
-3. See [`docs/authoring-agents.md`](docs/authoring-agents.md).
+1. Create the folder `agents/<category>/<agent-name>/` (folder name = `agentKey`).
+2. Copy [`templates/AGENTS.template.md`](templates/AGENTS.template.md) to
+   `AGENTS.md` inside it; fill the OAF frontmatter (`name`, `vendorKey`,
+   `agentKey`, `slug`, `version`, `description`, `author`, `license`, `tags`) and
+   the body, listing the skills it uses by name.
+3. See [`docs/authoring-agents.md`](docs/authoring-agents.md) — including the note
+   on **not** confusing OAF's `AGENTS.md` with the Linux Foundation's
+   project-guidance `AGENTS.md`.
 
 ## Conventions
 

@@ -42,14 +42,27 @@ Project-level dirs take precedence over global ones where a harness supports
 both. If your harness uses a different path, the skills still work — just point
 `--dir` at the right place (or copy the folder there manually).
 
-## Agents are different
+## Agents: a second open standard (OAF)
 
-The open standard covers **skills**, not **agents (subagents)**. Subagent
-formats — system prompt + tool allow-list + model selection — are still
-harness-specific. The `agents/` directory here uses the Claude Code subagent
-format. Treat agents as an optional, harness-specific layer; the skills are the
-portable core. When other harnesses converge on a subagent standard, we'll add
-adapters.
+The Agent Skills standard covers **skills**, not **agents**. For agents we use a
+different open standard: the [**Open Agent Format (OAF)**](https://openagentformat.com)
+— CC0, an agent is a folder with an `AGENTS.md` (frontmatter + body) that can
+compose skills, MCP servers, and other agents.
+
+Two important caveats:
+
+- **Adoption is emerging.** OAF (v0.8, Jan 2026) targets Claude Code, Goose,
+  Letta and others, but most harnesses haven't fully integrated it yet — far
+  behind SKILL.md. So **skills are still the portable core**; prefer a skill, and
+  use an OAF agent (which can call those skills) only when you need a persona.
+- **Name collision.** OAF's per-agent file is called `AGENTS.md`, which is also
+  the name of a *different* open standard — the Linux Foundation's project-level
+  guidance file (build commands, conventions; no persona concept). We avoid
+  confusion by nesting OAF agents under `agents/<category>/<agent>/AGENTS.md`, so
+  they're never at a repo/dir root where the guidance file is expected.
+
+Where a harness lacks OAF support, an `adapters/` contribution can generate that
+harness's native subagent file from the `AGENTS.md`.
 
 ## Why no Claude Code plugin / marketplace?
 

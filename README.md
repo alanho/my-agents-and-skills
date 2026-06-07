@@ -4,11 +4,12 @@
 > OpenClaw, Codex CLI, Gemini CLI, Goose, and more. Practical, shareable, and
 > private by default.
 
-These are portable skills built on the open
-[**Agent Skills Specification**](https://agentskills.io): a `SKILL.md` file in a
-folder, read **unchanged** by 30+ AI coding tools. No lock-in to any one harness.
-The goal is tools that make day-to-day life measurably better — starting with
-personal finance.
+Everything here is built on **open standards**, not one vendor's format:
+**skills** follow the [Agent Skills Specification](https://agentskills.io)
+(`SKILL.md`, read unchanged by 30+ AI coding tools), and **agents** follow the
+[Open Agent Format](https://openagentformat.com) (`AGENTS.md`, CC0). No lock-in
+to any one harness. The goal is tools that make day-to-day life measurably
+better — starting with personal finance.
 
 ## Catalog
 
@@ -55,7 +56,7 @@ After installing, just talk to your agent — a skill loads automatically when i
 my-agents-and-skills/
 ├── skills/<category>/<skill>/        # portable, spec-compliant skills (the core)
 │   └── SKILL.md  (+ scripts/ references/ assets/)
-├── agents/<category>/<agent>.md      # optional subagents — Claude Code format, NOT portable
+├── agents/<category>/<agent>/AGENTS.md   # optional agents — Open Agent Format (portable)
 ├── install.sh                        # link/copy skills into any harness
 ├── templates/                        # copy-to-start scaffolds
 └── docs/                             # authoring + per-harness install guides
@@ -64,13 +65,18 @@ my-agents-and-skills/
 `<category>` is repo-side grouping only; the installer flattens each skill folder
 directly into the harness skills dir, as the spec expects.
 
-## Skills vs. agents
+## Skills vs. agents — both open standards
 
-- **Skill** — a portable *capability* (instructions + optional scripts/refs).
-  Works in every supported harness. **Prefer this.**
-- **Agent** — a harness-specific *subagent* for focused multi-step work in its
-  own context. Not covered by the open standard yet; the ones here are Claude
-  Code format. Use only when a skill can't express the task.
+- **Skill** — a portable *capability* (instructions + optional scripts/refs),
+  built on the [Agent Skills](https://agentskills.io) standard (`SKILL.md`).
+  Runs in 30+ harnesses today. **Prefer this.**
+- **Agent** — a portable *orchestrating persona* for focused multi-step work,
+  built on the [Open Agent Format](https://openagentformat.com) (`AGENTS.md`,
+  CC0). It can *compose* the skills above. OAF adoption is still emerging, so
+  reach for an agent only when a skill can't express the task.
+
+Neither is locked to one harness. (Note: OAF's `AGENTS.md` is a different thing
+from the Linux Foundation's project-guidance `AGENTS.md` — see the docs.)
 
 Guides: [`docs/authoring-skills.md`](docs/authoring-skills.md) ·
 [`docs/authoring-agents.md`](docs/authoring-agents.md) ·
